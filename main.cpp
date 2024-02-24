@@ -12,10 +12,7 @@ int sign(double n) {
     }
 }
 
-void Program() {
-    std::cout << "Enter an equation in the form of 'a b c d'(ax^3 + bx^2 + cx + d)" << std::endl;
-    double a, b, c, d;
-    std::cin >> a >> b >> c >> d;
+void SolveEquation(double a, double b, double c, double d) {
     if (a == 0.0) {
         if (b == 0.0) {
             if (c == 0.0) {
@@ -49,10 +46,11 @@ void Program() {
         }
     } else {
         // ax^3 + bx^2 + cx + d = 0
-        b /= a, c /= a, d /= a, a = 1.0;
+        b /= a, c /= a, d /= a;
         const double Q = (b * b - 3.0 * c) / 9.0;
         const double R = (2.0 * b * b * b - 9.0 * b * c + 27.0 * d) / 54.0;
         const double S = Q * Q * Q - R * R;
+        std::cout << Q << " " << R << " " << S << std::endl;
         if (S > 0.0) {
             const double f = acos(R / sqrt(Q * Q * Q)) / 3.0;
             std::cout << "The equation has 3 solutions" << std::endl;
@@ -67,10 +65,10 @@ void Program() {
             std::cout << "The equation has 1 real solution and 2 complex solutions" << std::endl;
             const std::complex<double> i = std::complex<double>(0.0, 1.0);
             if (Q > 0.0) {
-                const double f = acosh(fabs(R) / sqrt(fabs(Q) * fabs(Q) * fabs(Q))) / 3.0;
+                const double f = acosh(fabs(R) / sqrt(Q * Q * Q)) / 3.0;
                 std::cout << "x1 = " << -2.0 * sign(R) * sqrt(Q) * cosh(f) - b / 3.0 << std::endl;
-                const std::complex<double> x2 = sign(R) * sqrt(Q) * cosh(f) + i * sqrt(3.0) * sqrt(Q) * sinh(f);
-                const std::complex<double> x3 = sign(R) * sqrt(Q) * cosh(f) - i * sqrt(3.0) * sqrt(Q) * sinh(f);
+                const std::complex<double> x2 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 + i * sqrt(3.0) * sqrt(Q) * sinh(f);
+                const std::complex<double> x3 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 - i * sqrt(3.0) * sqrt(Q) * sinh(f);
                 std::cout << "x2 = " << x2.real() << (sign(x2.imag()) == 1 ? " + " : " - ") << fabs(x2.imag()) << "i" << std::endl;
                 std::cout << "x3 = " << x3.real() << (sign(x3.imag()) == 1 ? " + " : " - ") << fabs(x3.imag()) << "i"  << std::endl;
             } else if (Q < 0.0) {
@@ -90,6 +88,13 @@ void Program() {
             }
         }
     }
+}
+
+void Program() {
+    std::cout << "Enter an equation in the form of 'a b c d'(ax^3 + bx^2 + cx + d)" << std::endl;
+    double a, b, c, d;
+    std::cin >> a >> b >> c >> d;
+    SolveEquation(a, b, c, d);
 
     std::cout << std::endl;
 }
