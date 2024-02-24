@@ -20,7 +20,7 @@ void SolveEquation(double a, double b, double c, double d) {
                     // 0 = 0
                     std::cout << "The equation has infinite solutions" << std::endl;
                 } else {
-                    // d = 0
+                    // d = 0, d != 0
                     std::cout << "The equation has no solutions" << std::endl;
                 }
             } else {
