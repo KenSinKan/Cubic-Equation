@@ -50,7 +50,6 @@ void SolveEquation(double a, double b, double c, double d) {
         const double Q = (b * b - 3.0 * c) / 9.0;
         const double R = (2.0 * b * b * b - 9.0 * b * c + 27.0 * d) / 54.0;
         const double S = Q * Q * Q - R * R;
-        std::cout << Q << " " << R << " " << S << std::endl;
         if (S > 0.0) {
             const double f = acos(R / sqrt(Q * Q * Q)) / 3.0;
             std::cout << "The equation has 3 solutions" << std::endl;
