@@ -95,6 +95,7 @@ void SolveEquation(double a, double b, double c, double d) {
                 std::cout << "x1 = " << -2.0 * sign(R) * sqrt(Q) * cosh(f) - b / 3.0 << std::endl;
                 const std::complex<double> x2 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 + i * sqrt(3.0) * sqrt(Q) * sinh(f);
                 const std::complex<double> x3 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 - i * sqrt(3.0) * sqrt(Q) * sinh(f);
+                // Upgraded output
                 std::cout << "x2 = ";
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
@@ -126,6 +127,7 @@ void SolveEquation(double a, double b, double c, double d) {
                 std::cout << "x1 = " << -2.0 * sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 << std::endl;
                 const std::complex<double> x2 = sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 + i * sqrt(3.0) * sqrt(fabs(Q)) * cosh(f);
                 const std::complex<double> x3 = sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 - i * sqrt(3.0) * sqrt(fabs(Q)) * cosh(f);
+                // Upgraded output
                 std::cout << "x2 = ";
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
@@ -157,6 +159,8 @@ void SolveEquation(double a, double b, double c, double d) {
                 std::cout << "x1 = " << x1 << std::endl;
                 const std::complex<double> x2 = -(b + x1) / 2.0 + i / 2.0 * sqrt(fabs((b - 3.0 * x1) * (b + x1) - 4.0 * c));
                 const std::complex<double> x3 = -(b + x1) / 2.0 - i / 2.0 * sqrt(fabs((b - 3.0 * x1) * (b + x1) - 4.0 * c));
+                // Upgraded output
+                std::cout << "x2 = ";
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
                 }
