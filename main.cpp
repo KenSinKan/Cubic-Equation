@@ -32,9 +32,36 @@ void SolveEquation(double a, double b, double c, double d) {
             // bx^2 + cx + d = 0
             double D = c * c - 4.0 * b * d;
             if (D < 0.0) {
+                const std::complex<double> i = std::complex<double>(0.0, 1.0);
                 std::cout << "The equation has 2 complex solutions" << std::endl;
-                std::cout << "x1 = " << -c / (2.0 * b) << " + " << sqrt(-D) / (2.0 * b) << "i" << std::endl;
-                std::cout << "x2 = " << -c / (2.0 * b) << " - " << sqrt(-D) / (2.0 * b) << "i" << std::endl;
+                const std::complex<double> x1 = -c / (2.0 * b) + sqrt(-D) * i / (2.0 * b);
+                const std::complex<double> x2 = -c / (2.0 * b) - sqrt(-D) * i / (2.0 * b);
+                std::cout << "x1 = ";
+                if (x1.real() != 0.0) {
+                    std::cout << x1.real() << " ";
+                }
+                if (sign(x1.imag()) == -1) {
+                    std::cout << "- ";
+                } else {
+                    std::cout << "+ ";
+                }
+                if (x1.imag() != 1.0) {
+                    std::cout << fabs(x1.imag());
+                }
+                std::cout << "i" << std::endl;
+                std::cout << "x2 = ";
+                if (x2.real() != 0.0) {
+                    std::cout << x2.real() << " ";
+                }
+                if (sign(x2.imag() == -1)) {
+                    std::cout << "- ";
+                } else {
+                    std::cout << "+ ";
+                }
+                if (x2.imag() != 1.0) {
+                    std::cout << fabs(x2.imag());
+                }
+                std::cout << "i" << std::endl;
             } else if (D == 0.0) {
                 std::cout << "The equation has 1 solutions" << std::endl;
                 std::cout << "x = " << -c / (2.0 * b) << std::endl;
@@ -68,22 +95,97 @@ void SolveEquation(double a, double b, double c, double d) {
                 std::cout << "x1 = " << -2.0 * sign(R) * sqrt(Q) * cosh(f) - b / 3.0 << std::endl;
                 const std::complex<double> x2 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 + i * sqrt(3.0) * sqrt(Q) * sinh(f);
                 const std::complex<double> x3 = sign(R) * sqrt(Q) * cosh(f) - b / 3.0 - i * sqrt(3.0) * sqrt(Q) * sinh(f);
-                std::cout << "x2 = " << x2.real() << (sign(x2.imag()) == 1 ? " + " : " - ") << fabs(x2.imag()) << "i" << std::endl;
-                std::cout << "x3 = " << x3.real() << (sign(x3.imag()) == 1 ? " + " : " - ") << fabs(x3.imag()) << "i"  << std::endl;
+                // Upgraded output
+                std::cout << "x2 = ";
+                if (x2.real() != 0.0) {
+                    std::cout << x2.real() << " ";
+                }
+                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x2.imag() != 1.0) {
+                    std::cout << fabs(x2.imag());
+                }
+                std::cout << "i" << std::endl;
+                std::cout << "x3 = ";
+                if (x3.real() != 0.0) {
+                    std::cout << x3.real() << " ";
+                }
+                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x3.imag() != 1.0) {
+                    std::cout << fabs(x3.imag());
+                }
+                std::cout << "i" << std::endl;
             } else if (Q < 0.0) {
                 const double f = asinh(fabs(R) / sqrt(fabs(Q) * fabs(Q) * fabs(Q))) / 3.0;
                 std::cout << "x1 = " << -2.0 * sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 << std::endl;
                 const std::complex<double> x2 = sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 + i * sqrt(3.0) * sqrt(fabs(Q)) * cosh(f);
                 const std::complex<double> x3 = sign(R) * sqrt(fabs(Q)) * sinh(f) - b / 3.0 - i * sqrt(3.0) * sqrt(fabs(Q)) * cosh(f);
-                std::cout << "x2 = " << x2.real() << (sign(x2.imag()) == 1 ? " + " : " - ") << fabs(x2.imag()) << "i" << std::endl;
-                std::cout << "x3 = " << x3.real() << (sign(x3.imag()) == 1 ? " + " : " - ") << fabs(x3.imag()) << "i"  << std::endl;
+                // Upgraded output
+                std::cout << "x2 = ";
+                if (x2.real() != 0.0) {
+                    std::cout << x2.real() << " ";
+                }
+                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x2.imag() != 1.0) {
+                    std::cout << fabs(x2.imag());
+                }
+                std::cout << "i" << std::endl;
+                std::cout << "x3 = ";
+                if (x3.real() != 0.0) {
+                    std::cout << x3.real() << " ";
+                }
+                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x3.imag() != 1.0) {
+                    std::cout << fabs(x3.imag());
+                }
+                std::cout << "i" << std::endl;
             } else {
                 const double x1 = cbrt(d - b * b * b / 27.0) - b / 3.0;
                 std::cout << "x1 = " << x1 << std::endl;
                 const std::complex<double> x2 = -(b + x1) / 2.0 + i / 2.0 * sqrt(fabs((b - 3.0 * x1) * (b + x1) - 4.0 * c));
                 const std::complex<double> x3 = -(b + x1) / 2.0 - i / 2.0 * sqrt(fabs((b - 3.0 * x1) * (b + x1) - 4.0 * c));
-                std::cout << "x2 = " << x2.real() << (sign(x2.imag()) == 1 ? " + " : " - ") << fabs(x2.imag()) << "i" << std::endl;
-                std::cout << "x3 = " << x3.real() << (sign(x3.imag()) == 1 ? " + " : " - ") << fabs(x3.imag()) << "i"  << std::endl;
+                // Upgraded output
+                std::cout << "x2 = ";
+                if (x2.real() != 0.0) {
+                    std::cout << x2.real() << " ";
+                }
+                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x2.imag() != 1.0) {
+                    std::cout << fabs(x2.imag());
+                }
+                std::cout << "i" << std::endl;
+                std::cout << "x3 = ";
+                if (x3.real() != 0.0) {
+                    std::cout << x3.real() << " ";
+                }
+                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
+                    std::cout << "- ";
+                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << "+ ";
+                }
+                if (x3.imag() != 1.0) {
+                    std::cout << fabs(x3.imag());
+                }
+                std::cout << "i" << std::endl;
             }
         }
     }
