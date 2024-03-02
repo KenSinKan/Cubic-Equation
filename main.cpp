@@ -1,6 +1,7 @@
 #include <iostream>
 #include <complex>
 #include <cmath>
+#include <iomanip>
 
 int sign(double n) {
     if (n > 0.0) {
@@ -41,11 +42,14 @@ void SolveEquation(double a, double b, double c, double d) {
                     std::cout << x1.real() << " ";
                 }
                 if (sign(x1.imag()) == -1) {
-                    std::cout << "- ";
-                } else {
-                    std::cout << "+ ";
+                    std::cout << "-";
+                    if (x1.real() != 0.0) {
+                        std::cout << " ";
+                    }
+                } else if (sign(x1.imag()) == 1 && x1.real() != 0.0) {
+                    std::cout << " + ";
                 }
-                if (x1.imag() != 1.0) {
+                if (fabs(x1.imag()) != 1.0) {
                     std::cout << fabs(x1.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -53,15 +57,19 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
                 }
-                if (sign(x2.imag() == -1)) {
-                    std::cout << "- ";
-                } else {
-                    std::cout << "+ ";
+                if (sign(x2.imag()) == -1) {
+                    std::cout << "-";
+                    if (x2.real() != 0.0) {
+                        std::cout << " ";
+                    }
+                } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
+                    std::cout << " + ";
                 }
-                if (x2.imag() != 1.0) {
+                if (fabs(x2.imag()) != 1.0) {
                     std::cout << fabs(x2.imag());
                 }
                 std::cout << "i" << std::endl;
+
             } else if (D == 0.0) {
                 std::cout << "The equation has 1 solutions" << std::endl;
                 std::cout << "x = " << -c / (2.0 * b) << std::endl;
@@ -100,12 +108,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
                 }
-                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
+                if (sign(x2.imag()) == -1) {
+                    std::cout << "-";
+                    if (x2.real() != 0.0) {
+                        std::cout << " ";
+                    }
                 } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x2.imag() != 1.0) {
+                if (fabs(x2.imag()) != 1.0) {
                     std::cout << fabs(x2.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -113,12 +124,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x3.real() != 0.0) {
                     std::cout << x3.real() << " ";
                 }
-                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
-                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                if (sign(x3.imag()) == -1) {
+                    std::cout << "-";
+                    if (x3.real() != 0.0) {
+                        std::cout << " ";
+                    }
+                } else if (sign(x3.imag()) == 1 && x3.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x3.imag() != 1.0) {
+                if (fabs(x3.imag()) != 1.0) {
                     std::cout << fabs(x3.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -132,12 +146,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
                 }
-                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
+                if (sign(x2.imag()) == -1) {
+                    std::cout << "-";
+                    if (x2.real() != 0.0) {
+                        std::cout << " ";
+                    }
                 } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x2.imag() != 1.0) {
+                if (fabs(x2.imag()) != 1.0) {
                     std::cout << fabs(x2.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -145,12 +162,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x3.real() != 0.0) {
                     std::cout << x3.real() << " ";
                 }
-                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
-                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                if (sign(x3.imag()) == -1) {
+                    std::cout << "-";
+                    if (x3.real() != 0.0) {
+                        std::cout << " ";
+                    }
+                } else if (sign(x3.imag()) == 1 && x3.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x3.imag() != 1.0) {
+                if (fabs(x3.imag()) != 1.0) {
                     std::cout << fabs(x3.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -164,12 +184,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x2.real() != 0.0) {
                     std::cout << x2.real() << " ";
                 }
-                if (sign(x2.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
+                if (sign(x2.imag()) == -1) {
+                    std::cout << "-";
+                    if (x2.real() != 0.0) {
+                        std::cout << " ";
+                    }
                 } else if (sign(x2.imag()) == 1 && x2.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x2.imag() != 1.0) {
+                if (fabs(x2.imag()) != 1.0) {
                     std::cout << fabs(x2.imag());
                 }
                 std::cout << "i" << std::endl;
@@ -177,12 +200,15 @@ void SolveEquation(double a, double b, double c, double d) {
                 if (x3.real() != 0.0) {
                     std::cout << x3.real() << " ";
                 }
-                if (sign(x3.imag()) == -1 && x2.real() != 0.0) {
-                    std::cout << "- ";
-                } else if (sign(x3.imag()) == 1 && x2.real() != 0.0) {
+                if (sign(x3.imag()) == -1) {
+                    std::cout << "-";
+                    if (x3.real() != 0.0) {
+                        std::cout << " ";
+                    }
+                } else if (sign(x3.imag()) == 1 && x3.real() != 0.0) {
                     std::cout << "+ ";
                 }
-                if (x3.imag() != 1.0) {
+                if (fabs(x3.imag()) != 1.0) {
                     std::cout << fabs(x3.imag());
                 }
                 std::cout << "i" << std::endl;
